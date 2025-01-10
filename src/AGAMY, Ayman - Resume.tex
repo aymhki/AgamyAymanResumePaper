@@ -1,0 +1,287 @@
+%! Author = aymanhki
+%! Date = 2025-01-10
+%! suppress = FileNotFound
+\documentclass{article}
+%\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{geometry}
+\usepackage{color}
+\usepackage{fontawesome}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\geometry{top=0.3in, bottom=0.3in, left=0.3in, right=0.3in}
+
+
+
+\hypersetup{breaklinks=true,%
+    colorlinks=true,%
+    linkcolor=cyan,%
+    urlcolor=black}
+
+\definecolor{black}{rgb}{0,0.0,0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formatting parameters  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newlength{\tabin}
+\setlength{\tabin}{1em}
+\newlength{\secsep}
+\setlength{\secsep}{0.1cm}
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0in}
+\setlength{\itemsep}{0in}
+\setlength{\topsep}{0in}
+\setlength{\tabcolsep}{0in}
+
+\definecolor{contactgray}{gray}{0.3}
+\pagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Template Definitions  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\lineunder}{\vspace*{-8pt} \\ \hspace*{-6pt} \hrulefill \\ \vspace*{-15pt}}
+\newcommand{\name}[1]{\begin{center}
+                          \textsc{\Huge#1}\\
+\end{center}}
+\newcommand{\program}[1]{\begin{center}
+                             \textsc{#1}
+\end{center}}
+\newcommand{\contact}[1]{\begin{center}
+                             \color{contactgray}{\small#1}
+\end{center}}
+
+\newenvironment{tabbedsection}[1]{
+    \begin{list}{}{
+        \setlength{\itemsep}{0pt}
+        \setlength{\labelsep}{0pt}
+        \setlength{\labelwidth}{0pt}
+        \setlength{\leftmargin}{\tabin}
+        \setlength{\rightmargin}{\tabin}
+        \setlength{\listparindent}{0pt}
+        \setlength{\parsep}{0pt}
+        \setlength{\parskip}{0pt}
+        \setlength{\partopsep}{0pt}
+        \setlength{\topsep}{#1}
+    }
+        \item[]
+        }{
+    \end{list}}
+
+\newenvironment{nospacetabbing}{
+    \begin{tabbing}
+    }{\end{tabbing}\vspace{-1.2em}}
+
+\newenvironment{resume_header}{}{\vspace{0pt}}
+
+
+\newenvironment{resume_section}[1]{
+    \filbreak
+    \vspace{2\secsep}
+    \textsc{\large#1}
+    \lineunder
+    \begin{tabbedsection}{\secsep}
+    }{\end{tabbedsection}}
+
+
+\newenvironment{resume_subsection}[2]{
+    \begin{minipage}[t]{0.75\linewidth}
+        \textbf{#1}
+    \end{minipage}%
+    \begin{minipage}[t]{0.25\linewidth}
+        \hfill \footnotesize #2
+    \end{minipage}
+    \begin{tabbedsection}{0.5\secsep}
+    }{\end{tabbedsection}}
+
+\newenvironment{subitems}{
+    \renewcommand{\labelitemi}{-}
+    \begin{itemize}
+        \setlength{\labelsep}{1em}
+        }{
+    \end{itemize}}
+
+
+\newenvironment{resume_employer}[4]{
+    \vspace{\secsep}
+    \begin{minipage}[t]{0.75\linewidth}
+        \textbf{#1}\\
+        \small #2
+    \end{minipage}%
+    \begin{minipage}[t]{0.25\linewidth}
+        \hfill \footnotesize #4
+    \end{minipage}
+    \vspace{0.1em}\\
+    \begin{tabbedsection}{0pt}
+        \begin{subitems}
+        }{\end{subitems}
+    \end{tabbedsection}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Start Document     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+    \begin{resume_header}
+        \name{{Ayman} {Agamy}}
+
+        \contact
+        {
+            \href{mailto:agamyahk@myumanitoba.ca} {{\faEnvelope} {agamyahk@myumanitoba.ca}}
+            \hspace{0.1cm} {$\vert$}
+            \hspace{0.1cm} \href{tel:+14312759377}{{\faMobile} {+1 (431) 275-9377}}
+            \hspace{0.1cm} {$\vert$}
+            \hspace{0.1cm} \href{https://www.linkedin.com/in/ayman-agamy/} {{\faLinkedinSquare} {ayman-agamy} }
+            \hspace{0.1cm} {$\vert$}
+            \hspace{0.1cm} \href{https://github.com/Aymanhki}{{\faGithubSquare} {aymanhki}}
+        }
+
+    \end{resume_header}
+
+
+    \begin{resume_section}{Education}
+        \begin{resume_subsection}{University of Manitoba}{September 2019 - December 2024}
+            \begin{subitems}
+                \item Bachelor of Science, Major in Computer Science.
+                \item Recipient of two scholarships for the Science Students' Association Tutoring Program.
+                \item Experience Record (Co-curricular) for peer tutoring Computer Science courses.
+            \end{subitems}
+        \end{resume_subsection}
+    \end{resume_section}
+
+    \begin{resume_section}{Technical Skills}
+        \textbf{Languages}
+            \begin{subitems}
+                \item Experienced with: Javascript (React, Axios, Zustand), PHP, HTML, XML, CSS, Grails, H2 Engine, Java
+                , Swift, SQLite.
+                \item Course work: Python, C/C++, Assembly, Microsoft SQL Server, MongoDB, jQuery, LaTeX, Prolog.
+            \end{subitems}
+        \textbf{Environments}
+            \begin{subitems}
+                \item Experienced with: Jira, Azure Devops, Google Cloud, Apache JMeter, SonarCloud, Git/Github
+                /Github Actions, Unix/Terminal, cmd /Shell, Visual Studio, IntelliJ, CLion, WebStorm, Xcode, Slack,
+                Microsoft Outlook/Teams/Word/Excel/Access.
+                \item Course work: Android Studio.
+            \end{subitems}
+    \end{resume_section}
+
+
+    \begin{resume_section}{Work Experience}
+
+        \begin{resume_employer}{SkipTheDishes, Just Eat Takeaway}{Live Operations Specialist}{}{February 2024 - Present}
+            \item Provided key point of contact for couriers, communicating effectively using live chat, phone, and email.
+
+            \item Optimized delivery times by supervising deliveries on the platform.
+
+            \item Resolved interruptions to the delivery process, both proactively and reactively.
+
+            \item Ensured adherence to the automatic order distribution system.
+
+            \item Collaborated closely with the Customer Services department, Local Operations teams, and other Just Eat Takeaway.com teams.
+        \end{resume_employer}
+
+
+        \begin{resume_employer}{Agriculture \& Agri-Food Canada, Co-op Work Term 1}{Programmer/Analyst (Small Systems)}{}{June 2023 - August 2023}
+            \item Developed a full-stack digital library management web application using Grails, React, and the H2 Database Engine.
+
+            \item Collaborated closely with a team of developers to design and implement a multi-lingual React
+            application with i18next integration and local storage capabilities, enabling farmers across Canada to calculate Accrual Breeding Herd Adjustment and Adjusted Reference Margin (ABHA/AARM) for the government of Canada.
+
+            \item Maintained production control system's schedule, logs, and database, ensuring the system's
+            availability and reliability.
+
+            \item Documented app functionalities and user manuals to ensure knowledge transfer and ongoing maintenance.
+        \end{resume_employer}
+
+        \begin{resume_employer}{Save on Foods}{Meat \& Deli Clerk}{}{June 2022 - August 2022}
+            \item Provided exceptional customer service by assisting with product selection and offering
+            recommendations.
+            \item Minimized shrink by managing inventory levels and identifying potential spoilage effectively.
+            \item Operated a variety of wrapping and slicing machines.
+            \item Maintained a well-organized and visually appealing presentation of the Meat \& Deli departments, ensuring consistent product availability.
+        \end{resume_employer}
+
+        \begin{resume_employer}{7-Eleven}{Sales Associate}{}{August 2021 - December 2022}
+            \item Provided excellent customer service while executing quick transactions with accuracy in a stressful
+            and fast paced environment.
+
+            \item Maintained a sanitary workplace abiding to Canada's Food, Drugs, and Safety regulations.
+
+            \item Prepared SkipTheDishes, DoorDash, and 7NOW orders.
+        \end{resume_employer}
+
+        \begin{resume_employer}{Harvest International Schools}{ICT Teacher}{}{June 2018 - October 2018}
+        \item Taught elementary stage students how to use Microsoft Office Programs (Word, Excel, and PowerPoint).
+
+        \item Created and graded a variety of theoretical and practical assessments.
+
+        \item Maintained a safe, fun, and interactive learning environment.
+      \end{resume_employer}
+
+    \end{resume_section}
+
+    \begin{resume_section}{Projects}
+        \begin{resume_subsection}{Harvest Schools Website}{May 2024}
+            \begin{subitems}
+                \item Developed a frontend web application using React framework to allow students, parents, and
+                staff members to access school information, events, and resources and showcase the school
+                facilities, partners, and achievements.
+            \end{subitems}
+        \end{resume_subsection}
+
+        \begin{resume_subsection}{Epoch}{April 2024}
+            \begin{subitems}
+                \item Developed a full-stack social media web application using React framework \& Python, to allow
+                users to share their thoughts, photos, and videos with friends and family in dedicated and
+                scheduled capsules.
+            \end{subitems}
+        \end{resume_subsection}
+
+        \begin{resume_subsection}{Flights Analyzer}{November 2022}
+            \begin{subitems}
+                \item Developed a terminal user interface using Java and Microsoft SQL Server to analyze and compare the performance, accuracy, and reliability of multiple airlines over 10 years during extreme weather conditions in the USA.
+            \end{subitems}
+        \end{resume_subsection}
+        \begin{resume_subsection}{Better Than Aurora}{April 2022}
+            \begin{subitems}
+                \item Designed and developed an android application using Java and HSQLDB for students and faculty
+                members to use as an alternative to Aurora (University of Manitoba's registration and student records
+                management system).
+            \end{subitems}
+        \end{resume_subsection}
+        \begin{resume_subsection}{Financial Tracker}{November 2021}
+            \begin{subitems}
+                \item Developed a frontend calendar website using jQuery framework, for users to track their spending
+                and income
+                throughout the year.
+            \end{subitems}
+        \end{resume_subsection}
+    \end{resume_section}
+
+    \begin{resume_section}{Volunteer Experience}
+        \begin{resume_employer}{Nimbus Learning}{Science Students' Association Peer Mentor}{}{February 2021 - Present}
+            \item Help first and second year students understand concepts and assessments in different computer
+            science courses at the University of Manitoba.
+
+        \end{resume_employer}
+
+        \begin{resume_employer}{Harvest International Schools}{Developer}{}{June 2018 - Present}
+            \item Developed the school's website from scratch.
+
+            \item Maintained a Content Management System (CMS) for the school's Library.
+
+            \item Developed a tuition fees calculator (Windows application) using the Visual Basic .NET framework.
+        \end{resume_employer}
+    \end{resume_section}
+
+
+    \begin{resume_section}{Interests}
+    	\begin{nospacetabbing}
+            Cinematography, photography, traveling, and playing video games.
+    	\end{nospacetabbing}
+    \end{resume_section}
+
+\end{document}
