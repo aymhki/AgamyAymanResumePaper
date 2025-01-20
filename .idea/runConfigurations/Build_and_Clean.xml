@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Build and Clean" type="CompoundRunConfigurationType">
+    <toRun name="AGAMY, Ayman - Cover Letter" type="LATEX_RUN_CONFIGURATION" />
+    <toRun name="AGAMY, Ayman - Resume" type="LATEX_RUN_CONFIGURATION" />
+    <toRun name="AGAMY, Ayman - Resume (Non Technical)" type="LATEX_RUN_CONFIGURATION" />
+    <toRun name="AGAMY, Ayman Reference List" type="LATEX_RUN_CONFIGURATION" />
+    <toRun name="clean.sh" type="ShConfigurationType" />
+    <method v="2" />
+  </configuration>
+</component>
