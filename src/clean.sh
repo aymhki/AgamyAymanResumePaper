@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sleep 1
+sleep 3
 
 # Get the directory where the script is located (src folder)
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
