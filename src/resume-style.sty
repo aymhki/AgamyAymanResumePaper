@@ -89,15 +89,23 @@
     \begin{tabbedsection}{\secsep}
     }{\end{tabbedsection}}
 
-\newenvironment{resume_subsection}[2]{
-    \begin{minipage}[t]{0.75\linewidth}
-        \textbf{#1}
-    \end{minipage}%
-    \begin{minipage}[t]{0.25\linewidth}
-        \hfill \footnotesize #2
-    \end{minipage}
-    \begin{tabbedsection}{0.5\secsep}
-    }{\end{tabbedsection}}
+%\newenvironment{resume_subsection}[2]{
+%    \begin{minipage}[t]{0.75\linewidth}
+%        \textbf{#1}
+%    \end{minipage}%
+%    \begin{minipage}[t]{0.25\linewidth}
+%        \hfill \footnotesize #2
+%    \end{minipage}%
+%    \begin{tabbedsection}{0.5\secsep}
+%    }{\end{tabbedsection}}
+
+\newenvironment{resume_subsection}[2]{%
+    \noindent%
+    \begin{tabular}[t]{@{}p{0.75\linewidth}p{0.25\linewidth}@{}}%
+        \textbf{#1} & \hfill\footnotesize #2 \\[0pt]%
+    \end{tabular}\\[-\baselineskip]%
+    \begin{tabbedsection}{0.5\secsep}}
+    {\end{tabbedsection}}
 
 \newenvironment{subitems}{
     \renewcommand{\labelitemi}{-}
@@ -106,18 +114,27 @@
         }{
     \end{itemize}}
 
-\newenvironment{resume_employer}[4]{
-%    \filbreak
-    \vspace{\secsep}
-    \begin{minipage}[t]{0.75\linewidth}
-        \textbf{#1}\\
-        \small #2
-    \end{minipage}%
-    \begin{minipage}[t]{0.25\linewidth}
-        \hfill \footnotesize #4
-    \end{minipage}
-    \vspace{0.1em}\\
-    \begin{tabbedsection}{0pt}
-        \begin{subitems}
-        }{\end{subitems}
+%\newenvironment{resume_employer}[4]{
+%%    \filbreak
+%    \vspace{\secsep}
+%    \begin{minipage}[t]{0.75\linewidth}
+%        \textbf{#1}\\
+%        \small #2
+%    \end{minipage}%
+%    \begin{minipage}[t]{0.25\linewidth}
+%        \hfill \footnotesize #4
+%    \end{minipage}
+%    \vspace{0.1em}\\
+%    \begin{tabbedsection}{0pt}
+%        \begin{subitems}
+%        }{\end{subitems}
+%    \end{tabbedsection}}
+
+\newenvironment{resume_employer}[4]{%
+    \vspace{\secsep}%
+    \noindent\textbf{#1} \hfill \footnotesize #4 \\
+    \noindent\small #2 \\[-0.3em]%
+    \begin{tabbedsection}{0pt}%
+        \begin{subitems}}
+        {\end{subitems}%
     \end{tabbedsection}}
