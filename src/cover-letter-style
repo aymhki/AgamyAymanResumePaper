@@ -1,0 +1,140 @@
+%! Author = aymanhki
+%! Date = 2025-01-10
+% Resume Style Package - Shared formatting and template definitions
+
+\ProvidesPackage{cover-letter-style}
+
+% Package imports
+\RequirePackage[a4paper]{geometry}
+\RequirePackage{color}
+\RequirePackage{fontawesome}
+\RequirePackage{hyperref}
+\RequirePackage{amssymb}
+\RequirePackage{needspace}
+
+% Page geometry
+\geometry{top=0.5in, bottom=0.5in, left=1in, right=1in}
+
+% Hyperlink setup
+\hypersetup{breaklinks=true,%
+    colorlinks=true,%
+    linkcolor=cyan,%
+    urlcolor=black}
+
+% Color definitions
+\definecolor{black}{rgb}{0,0.0,0}
+\definecolor{contactgray}{gray}{0.3}
+
+% Page style
+\pagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formatting parameters  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newlength{\tabin}
+\setlength{\tabin}{1em}
+\newlength{\secsep}
+\setlength{\secsep}{0.1cm}
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0in}
+\setlength{\itemsep}{0in}
+\setlength{\topsep}{0in}
+\setlength{\tabcolsep}{0in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Template Definitions  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\lineunder}{\vspace*{-8pt} \\ \hspace*{-6pt} \hrulefill \\ \vspace*{-15pt}}
+\newcommand{\name}[1]{\begin{center}
+\textbf{\Huge#1}\\
+\end{center}}
+\newcommand{\program}[1]{\begin{center}
+\textbf{#1}
+\end{center}}
+\newcommand{\contact}[1]{\begin{center}
+\color{contactgray}{\small#1}
+\end{center}}
+
+\newenvironment{tabbedsection}[1]{
+    \begin{list}{}{
+        \setlength{\itemsep}{0pt}
+        \setlength{\labelsep}{0pt}
+        \setlength{\labelwidth}{0pt}
+        \setlength{\leftmargin}{\tabin}
+        \setlength{\rightmargin}{\tabin}
+        \setlength{\listparindent}{0pt}
+        \setlength{\parsep}{0pt}
+        \setlength{\parskip}{0pt}
+        \setlength{\partopsep}{0pt}
+        \setlength{\topsep}{#1}
+    }
+        \item[]
+        }{
+    \end{list}}
+
+\newenvironment{nospacetabbing}{
+    \begin{tabbing}
+    }{\end{tabbing}\vspace{-1.2em}}
+
+\newenvironment{resume_header}{}{\vspace{0pt}}
+
+\newenvironment{resume_section}[1]{
+%    \filbreak
+    \vspace{2\secsep}
+    \textbf{\large#1}
+    \lineunder
+    \begin{tabbedsection}{\secsep}
+    }{\end{tabbedsection}}
+
+%\newenvironment{resume_subsection}[2]{
+%    \begin{minipage}[t]{0.75\linewidth}
+%        \textbf{#1}
+%    \end{minipage}%
+%    \begin{minipage}[t]{0.25\linewidth}
+%        \hfill \footnotesize #2
+%    \end{minipage}%
+%    \begin{tabbedsection}{0.5\secsep}
+%    }{\end{tabbedsection}}
+
+\newenvironment{resume_subsection}[2]{%
+    \noindent%
+    \begin{tabular}[t]{@{}p{0.75\linewidth}p{0.25\linewidth}@{}}%
+        \textbf{#1} & \hfill\footnotesize #2 \\[0pt]%
+    \end{tabular}\\[-\baselineskip]%
+    \begin{tabbedsection}{0.5\secsep}}
+    {\end{tabbedsection}}
+
+\newenvironment{subitems}{
+    \renewcommand{\labelitemi}{-}
+    \begin{itemize}
+        \setlength{\labelsep}{1em}
+        }{
+    \end{itemize}}
+
+%\newenvironment{resume_employer}[4]{
+%%    \filbreak
+%    \vspace{\secsep}
+%    \begin{minipage}[t]{0.75\linewidth}
+%        \textbf{#1}\\
+%        \small #2
+%    \end{minipage}%
+%    \begin{minipage}[t]{0.25\linewidth}
+%        \hfill \footnotesize #4
+%    \end{minipage}
+%    \vspace{0.1em}\\
+%    \begin{tabbedsection}{0pt}
+%        \begin{subitems}
+%        }{\end{subitems}
+%    \end{tabbedsection}}
+
+\newenvironment{resume_employer}[4]{%
+    \vspace{\secsep}%
+    \noindent\textbf{#1} \hfill \footnotesize #4 \\
+    \noindent\small #2 \\[-0.3em]%
+    \begin{tabbedsection}{0pt}%
+        \begin{subitems}}
+        {\end{subitems}%
+    \end{tabbedsection}}
